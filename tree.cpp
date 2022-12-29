@@ -1,3 +1,5 @@
+// sorce code for windows //
+
 #include <windows.h>
 #include <bits/stdc++.h>
 #define sz(x) (int)x.size()
