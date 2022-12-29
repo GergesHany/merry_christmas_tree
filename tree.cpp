@@ -227,12 +227,12 @@ void Accepted(){
   do{
 
     // print the text in the begining of the program
-	  scan : 
-	    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	    cout << "Enter the number\n";
-	    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-	    cout << "the number should be even and n >= 10\n\n";
-	    cin >> s;
+  scan : 
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+    cout << "Enter the number\n";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    cout << "the number should be even and n >= 10\n\n";
+    cin >> s;
 
     if (!is_good(s)) n = 0; // if the input is not number n = 0 to make the program go to the scan again
     else n = stoi(s); // if the input is number n = the number
