@@ -237,42 +237,42 @@ void Accepted(){
     else n = stoi(s); // if the input is number n = the number
 	  
 	  if (n < 10){	
-      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-	    // print "invalid number...!" for slow
-      print_slow("invalid number...!\a\n"); 
-	    	    
-		  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+		    // print "invalid number...!" for slow
+	      print_slow("invalid number...!\a\n"); 
+
+	    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	    cout << "Enter the number again\n\n";
 	    goto scan; // go to scan again if the number is invalid 
 	  }
 
 	  else if (n % 2 == 0 and n >= 10){
-	        system("cls"); // clear screen 
-	      	print_tree(n, 150); // print the shape for slow
-	      	system("cls"); 
-	  	    
-	  	    print_tree_1(n);
-	  	    system("cls");
-	  	   
-       // print the shape for fast number of times to make it look like it's moving 
-	  	 for (int i = 0; i < 15; i++){ 
-	  	 	 print_tree(n, 0);
-	  	 	 system("cls");  
-		   }  
+		system("cls"); // clear screen 
+		print_tree(n, 150); // print the shape for slow
+		system("cls"); 
+
+		    print_tree_1(n);
+		    system("cls");
+
+	    // print the shape for fast number of times to make it look like it's moving 
+		 for (int i = 0; i < 15; i++){ 
+			 print_tree(n, 0);
+			 system("cls");  
+		 }  
 		 print_tree(n, 150);
 	  }
-	   
-  	cout << "\nWant to try again ? y : n :  ";
-  	cin >> c;
-  	cout << '\n';
+
+	cout << "\nWant to try again ? y : n :  ";
+	cin >> c;
+	cout << '\n';
 
     // check if the user enter y or n if not print "invalid input...!" and exit the program
     if (tolower(c) != 'y' && tolower(c) != 'n'){
       SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
       print_slow("invalid input...!\n");
       SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 176); 
-	    print_slow("made by : [Gerges Hany]..!\n");
-	    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+      print_slow("made by : [Gerges Hany]..!\n");
+      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
       exit(0); // exit the program
     }
   	if (tolower(c) == 'y') system("cls"); // clear screen if the user want to try again
@@ -280,10 +280,10 @@ void Accepted(){
 
 
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 176); 
-	print_slow("made by : [Gerges Hany]..!\n");
-	//  return color to general color 
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-	cout << "";
+  print_slow("made by : [Gerges Hany]..!\n");
+  //  return color to general color 
+  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+  cout << "";
   return;
 }
 
