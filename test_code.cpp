@@ -1,3 +1,5 @@
+// sorce code for the linux //
+
 #include <iostream>
 #include <unistd.h>
 #include <time.h>
@@ -5,45 +7,6 @@
 #define ceill(n, m) (((n) / (m)) + ((n) % (m) ? 1 : 0))
 using namespace std;
 
-
-/* 
-
-  \033[0;31m
-        ^^
-          foreground background
-  black        30         40
-  red          31         41
-  green        32         42
-  yellow       33         43
-  blue         34         44
-  magenta      35         45
-  cyan         36         46
-  white        37         47
-
-  \033[0;31m
-      ^
-  reset             0  (everything back to normal)
-  bold/bright       1  (often a brighter shade of the same colour)
-  underline         4
-  inverse           7  (swap foreground and background colours)
-
-  Example: cout << "\033[1;31m bold red text \033[0m" << "\n";
-  Example: cout << "\033[1;31m bold red text \033[0m" << "\n";
-
-
-*/
-
-
-/*
-
-  ("\033[0;31m")   // print red text
-  ("\033[1;31m") // print bold red text
-  ("\033[4;31m") // print underlined red text
-  ("\033[1;4;31m") // print bold and underlined red text
-
-  // ("\033[0m") // reset the text to default
-
-*/
 
 void sleep(double mseconds){
     clock_t goal = mseconds + clock();
@@ -185,15 +148,12 @@ public:
 };
 
 
-
-
-
 // print the star shape up the tree
 void print_star(int n, float speed = 0.9){
   
   int star = 1, spase = n - 1, color = 31; 
   for (int i = 1; i <= n / 4 - 1; i++){
-  	sleep(speed); // make the program running slow for a specific time The time is in miliseconds
+    sleep(speed); // make the program running slow for a specific time The time is in miliseconds
     cout << string(spase, ' '); // print the spase before the star 
     for (int i = 0; i < star; i++) colorize("*", color); // print the stars with color     
     cout << "\n";
@@ -237,12 +197,12 @@ void print_tree(int n, float speed = 0.9){
   // the print the first step in the tree 
   int star = 1, space = n - 1;
   for(int i = 0; i < n; i++){
-  	sleep(speed); // make the program running slow for a specific time The time is in miliseconds
+   sleep(speed); 
     for(int j = 0; j < space; j++) cout << " "; 
-    for(int j = 0; j < star; j++) colorize("*", color); // print the stars with color
+    for(int j = 0; j < star; j++) colorize("*", color); 
     cout << "\n";
-    star += 2, space--, color++; // change the number of the stars and the spase
-    if (color == 36) color = 31; // if the color is 16 change it to 10 to make the color change again
+    star += 2, space--, color++; 
+    if (color == 36) color = 31; 
   }
 
   color = 31; // change the color to 31
@@ -251,26 +211,26 @@ void print_tree(int n, float speed = 0.9){
   
   // the print the secound step in the tree 
   for(int i = 0; i < n / 2; i++){
-  	sleep(speed); // make the program running slow for a specific time The time is in miliseconds
+    sleep(speed); 
     // print the spase before the star with for loop because the number of the spase is possible to be negative
     for(int j = 0; j < space; j++) cout << " "; 
-    for (int j = 0; j < star; j++) colorize("*", color); // print the stars with color
+    for (int j = 0; j < star; j++) colorize("*", color); 
     cout << "\n";
-    star += 2, space--, color++; // change the number of the stars and the spase
-	if (color == 36) color = 31; // if the color is 16 change it to 10 to make the color change again
+    star += 2, space--, color++;
+    if (color == 36) color = 31; 
   }
 
-  color = 31; // change the color to 10
+  color = 31; // change the color to 10 to make the color change again
   // change the number of the stars and the spase
   star /= 2, star += 2; space = star / 2 - 2;
   // the print the third step in the tree 
   for(int i = 0; i < n / 2; i++){
-  	sleep(speed); // make the program running slow for a specific time The time is in miliseconds
+    sleep(speed); 
     // print the spase before the star with for loop because the number of the spase is possible to be negative
     for(int j = 0; j < space; j++) cout << " "; 
-    for (int j = 0; j < star; j++) colorize("*", color); // print the stars with color
-    star += 2, space--, color++; // change the number of the stars and the spase
-    if (color == 36) color = 31; // if the color is 15 change it to 10 to make the color change again
+    for (int j = 0; j < star; j++) colorize("*", color);
+    star += 2, space--, color++; 
+    if (color == 36) color = 31;
     cout << "\n"; 
   }
   
@@ -287,13 +247,13 @@ void print_star_1(int n, float speed = 0.9){
   
   int star = 1, spase = n - 1, color = 31;
   for (int i = 1; i <= n / 4 - 1; i++){
-  	sleep(speed);
+    sleep(speed);
     cout << string(spase, ' ');
     for (int i = 0; i < star; i++){
-    colorize("*", color); color++; 
-    if (color >= 36) color = 31;
-	}
-	  color = 31;
+      colorize("*", color); color++; 
+      if (color >= 36) color = 31;
+    }
+    color = 31;
     cout << "\n";
     spase--, star += 2;
   }
@@ -303,10 +263,10 @@ void print_star_1(int n, float speed = 0.9){
     sleep(speed);
     cout << string(spase, ' ');
     for (int j = 1; j <= star; j++) {
-  	  colorize("*", color); color++;
+      colorize("*", color); color++;
       if (color >= 36) color = 31;
-	  }
-	  color = 31;
+    }
+    color = 31;
     cout << "\n";
     spase++, star -= 2;
   }
@@ -321,13 +281,13 @@ void print_tree_1(int n, float speed = 0.9){
   // print the first step in the tree
   int star = 1, space = n - 1;
   for(int i = 0; i < n; i++){
-  	sleep(speed);
+   sleep(speed);
     for(int j = 0; j < space; j++) cout << " ";
     for(int j = 0; j < star; j++){
-    	colorize("*", color);
-		  color++; 
+      colorize("*", color);
+      color++; 
       if (color >= 36) color = 31;
-	  }
+    }
     cout << "\n";
     star += 2, space --, color = 31;
   }
@@ -337,13 +297,13 @@ void print_tree_1(int n, float speed = 0.9){
   space = star / 2 - 2;
   // print the secound step in the tree
   for(int i = 0; i < n / 2; i++){
-  	sleep(speed);
+    sleep(speed);
     for(int j = 0; j < space; j++) cout << " ";
     for(int j = 0; j < star; j++){
-    	colorize("*", color);
-		  color++; 
+      colorize("*", color);
+      color++; 
       if (color >= 36) color = 31;
-	  }
+    }
 
     cout << "\n";
     star += 2, space--, color = 31;
@@ -354,13 +314,13 @@ void print_tree_1(int n, float speed = 0.9){
   color = 31;
   // print the third step in the tree 
   for(int i = 0; i < n / 2; i++){
-  	sleep(speed);
+    sleep(speed);
     for(int j = 0; j < space; j++) cout << " ";
     for(int j = 0; j < star; j++){
-    	colorize("*", color);
-		  color++; 
+      colorize("*", color);
+      color++; 
       if (color >= 36) color = 31;
-	  }
+    }
     cout << "\n";
     star += 2, space-- , color = 31;
   }
@@ -371,14 +331,14 @@ void print_tree_1(int n, float speed = 0.9){
 
 // print The string slowly
 void print_slow(string s){
-	for (int i = 0; i < sz(s); i++)
+  for (int i = 0; i < sz(s); i++)
     cout << s[i], sleep(0.9);
 }
 
 bool is_good(string s){
-	for (int i = 0; i < sz(s); i++)
-	   if (!isdigit(s[i])) return false;
-	return true;   
+  for (int i = 0; i < sz(s); i++)
+    if (!isdigit(s[i])) return false;
+   return true;   
 }
 
 void Accepted(){
@@ -399,33 +359,29 @@ void Accepted(){
 	   n = (is_good(s) ? stoi(s) : 0);   
 		  
 	  if (n < 10){	
-      colorize("", 4);
-	    // print "invalid number...!" for slow
-      print_slow("invalid number...!\a\n"); 
+             colorize("", 4);
+	     // print "invalid number...!" for slow
+              print_slow("invalid number...!\a\n"); 
 	    	    
-		  colorize("", 7);
-	    cout << "Enter the number again\n\n";
+	     colorize("", 7);
+	     cout << "Enter the number again\n\n";
 	    goto scan; // go to scan again if the number is invalid 
 	  }
 
-	  else if (n % 2 == 0 and n >= 10){
-        system("clear"); // clear screen 
-        system("cls");
-        print_tree(n, 100); // print the shape for slow
-        system("clear");
-        system("cls");
+	else if (n % 2 == 0 and n >= 10){
+          system("clear"); // clear screen 
+          print_tree(n, 100); // print the shape for slow
+          system("clear");
         
-        print_tree_1(n, 100);
-	    	system("clear");
-        system("cls");
+          print_tree_1(n, 100);
+	  system("clear");
 	  	   
        // print the shape for fast number of times to make it look like it's moving 
-	  	 for (int i = 0; i < 5; i++){ 
-	  	 	 print_tree(n, 3);
-	  	 	 system("clear");  
-         system("cls");
-		   }  
-		  print_tree(n, 100);
+	 for (int i = 0; i < 5; i++){ 
+	     print_tree(n, 3);
+	     system("clear");  
+	  }  
+	  print_tree(n, 100);
 	  }
 	   
   	cout << "\n Want to draw again ? [y/n] :  ";
@@ -437,19 +393,19 @@ void Accepted(){
       colorize("", 4);
       print_slow("invalid input...!\n");
       colorize("", 176);
-	    print_slow("made by : [Gerges Hany]..!\n");
-	    colorize("", 15);
+      print_slow("made by : [Gerges Hany]..!\n");
+      colorize("", 15);
       exit(0);
     }
-  	if (tolower(c) == 'y') system("clear"); // clear screen if the user want to try again
+   if (tolower(c) == 'y') system("clear"); // clear screen if the user want to try again
   }while(tolower(c) == 'y');
 
 
   colorize("", 176);
-	print_slow("made by : [Gerges Hany]..!\n");
-	
-	//  return color to general color 
-	colorize("", 15);
+  print_slow("made by : [Gerges Hany]..!\n");
+
+  //  return color to general color 
+  colorize("", 15);
   return;
 }
 
