@@ -23,8 +23,8 @@ void print_star(int n, int speed){
   
   int star = 1, spase = n - 1, color = 12; 
   for (int i = 1; i <= n / 4 - 1; i++){
-  	Sleep(speed); // make the program running slow for a specific time The time is in milliseconds
-  	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); // change the color of the text
+   Sleep(speed); // make the program running slow for a specific time The time is in milliseconds
+   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); // change the color of the text
     cout << string(spase, ' '); // print the spaces before the star
     cout << string(star, '*'); // print the stars 
     cout << "\n";
@@ -72,7 +72,7 @@ void print_tree(int n, int speed){
   // the print the first step in the tree 
   int star = 1, space = n - 1;
   for(int i = 0; i < n; i++){
-  	Sleep(speed);
+    Sleep(speed);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     // print the space before the star with for loop because the number of the space is possible to be negative
     for(int j = 0; j < space; j++) cout << " "; 
@@ -87,22 +87,22 @@ void print_tree(int n, int speed){
   
   // the print the secound step in the tree 
   for(int i = 0; i < n / 2; i++){
-  	Sleep(speed); 
-  	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); 
+   Sleep(speed); 
+   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); 
     // print the spase before the star with for loop because the number of the spase is possible to be negative
     for(int j = 0; j < space; j++) cout << " "; 
     cout << string(star, '*'); 
     cout << "\n";
     star += 2, space--, color++; 
-	if (color == 16) color = 10;
+    if (color == 16) color = 10;
   }
 
   color = 10; 
   star /= 2, star += 2; space = star / 2 - 2; 
   // the print the third step in the tree 
   for(int i = 0; i < n / 2; i++){
-  	Sleep(speed); 
-  	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); 
+   Sleep(speed); 
+   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); 
     for(int j = 0; j < space; j++) cout << " "; 
     cout << string(star, '*');
     star += 2, space--, color++; 
@@ -128,23 +128,23 @@ void print_star_1(int n){
     for (int i = 0; i < star; i++){
       // change colors in the loop to make every color take a diagonal
        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
-		   cout << "*"; color++; 
+       cout << "*"; color++; 
        if (color >= 16) color = 12;
-  	}
-	   color = 12;
+    }
+     color = 12;
      cout << "\n";
      spase--, star += 2;
   }
 
   star -= 4, spase += 2; color = 12;
   for (int i = 1; i <= n / 4 - 1; i++){
-    cout << string(spase, ' ');
-    for (int j = 1; j <= star; j++) {
+      cout << string(spase, ' ');
+      for (int j = 1; j <= star; j++) {
       SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
       cout << "*"; color++; 
       if (color >= 16) color = 12;
-	}
-	  color = 12;
+   }
+    color = 12;
     cout << "\n";
     spase++, star -= 2;
   }
@@ -159,13 +159,13 @@ void print_tree_1(int n){
   // print the first step in the tree
   int star = 1, space = n - 1;
   for(int i = 0; i < n; i++){
-  	Sleep(200);
+    Sleep(200);
     for(int j = 0; j < space; j++) cout << " ";
     for(int j = 0; j < star; j++){
-    	 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
-		   cout << "*"; color++; 
-       if (color >= 16) color = 10;
-	  }
+    	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+	cout << "*"; color++; 
+        if (color >= 16) color = 10;
+    }
     cout << "\n";
     star += 2, space --, color = 10;
   }
@@ -175,13 +175,13 @@ void print_tree_1(int n){
   space = star / 2 - 2;
   // print the secound step in the tree
   for(int i = 0; i < n / 2; i++){
-  	Sleep(200);
+    Sleep(200);
     for(int j = 0; j < space; j++) cout << " ";
     for(int j = 0; j < star; j++) {
-    	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
-	    cout << "*"; color++; 
+      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+      cout << "*"; color++; 
       if (color >= 16) color = 10;
-	  }
+   }
     cout << "\n";
     star += 2, space--, color = 10;
   }
@@ -192,24 +192,23 @@ void print_tree_1(int n){
   
   // print the third step in the tree 
   for(int i = 0; i < n / 2; i++){
-  	Sleep(200);
+    Sleep(200);
     for(int j = 0; j < space; j++) cout << " ";
     for(int j = 0; j < star; j++) {
       SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
       cout << "*"; color++; 
       if (color >= 16) color = 12;
-	  }
+    }
     cout << "\n";
     star += 2, space-- , color = 10;
   }
   
    print_in_end(star); // print the text in the end of the tree
-	
 }
 
 // print The string slowly
 void print_slow(string s){
-	for (int i = 0; i < sz(s); i++)
+   for (int i = 0; i < sz(s); i++)
     cout << s[i], Sleep(100);
 }
 
@@ -238,31 +237,31 @@ void Accepted(){
     if (!is_good(s)) n = 0; // if the input is not number n = 0 to make the program go to the scan again
     else n = stoi(s); // if the input is number n = the number
 	  
-	  if (n < 10){	
-	      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-		    // print "invalid number...!" for slow
-	      print_slow("invalid number...!\a\n"); 
+    if (n < 10){	
+      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+	    // print "invalid number...!" for slow
+      print_slow("invalid number...!\a\n"); 
 
-	    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	    cout << "Enter the number again\n\n";
-	    goto scan; // go to scan again if the number is invalid 
-	  }
+      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+      cout << "Enter the number again\n\n";
+      goto scan; // go to scan again if the number is invalid 
+   }
 
-	  else if (n % 2 == 0 and n >= 10){
-		system("cls"); // clear screen 
-		print_tree(n, 150); // print the shape for slow
-		system("cls"); 
+    else if (n % 2 == 0 and n >= 10){
+	system("cls"); // clear screen 
+	print_tree(n, 150); // print the shape for slow
+	system("cls"); 
 
-		    print_tree_1(n);
-		    system("cls");
+	    print_tree_1(n);
+	    system("cls");
 
-	    // print the shape for fast number of times to make it look like it's moving 
-		 for (int i = 0; i < 15; i++){ 
-			 print_tree(n, 0);
-			 system("cls");  
-		 }  
-		 print_tree(n, 150);
-	  }
+         // print the shape for fast number of times to make it look like it's moving 
+	 for (int i = 0; i < 15; i++){ 
+	   print_tree(n, 0);
+	   system("cls");  
+	 }  
+	 print_tree(n, 150);
+   }
 
 	cout << "\nWant to try again ? y : n :  ";
 	cin >> c;
