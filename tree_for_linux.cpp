@@ -332,7 +332,7 @@ void print_tree_1(int n, float speed = 0.9){
 // print The string slowly
 void print_slow(string s){
   for (int i = 0; i < sz(s); i++)
-    cout << s[i], sleep(0.9);
+    cout << s[i], sleep(100.0);
 }
 
 bool is_good(string s){
@@ -359,9 +359,9 @@ void Accepted(){
 	   n = (is_good(s) ? stoi(s) : 0);   
 		  
 	  if (n < 10){	
-             colorize("", 4);
+        colorize("", 4);
 	     // print "invalid number...!" for slow
-              print_slow("invalid number...!\a\n"); 
+        print_slow("invalid number...!\a\n"); 
 	    	    
 	     colorize("", 7);
 	     cout << "Enter the number again\n\n";
@@ -374,14 +374,14 @@ void Accepted(){
           system("clear");
         
           print_tree_1(n, 100);
-	  system("clear");
+	        system("clear");
 	  	   
        // print the shape for fast number of times to make it look like it's moving 
-	 for (int i = 0; i < 5; i++){ 
-	     print_tree(n, 3);
-	     system("clear");  
-	  }  
-	  print_tree(n, 100);
+        for (int i = 0; i < 5; i++){ 
+            print_tree(n, 1);
+            system("clear");  
+         }  
+	     print_tree(n, 100);
 	  }
 	   
   	cout << "\n Want to draw again ? [y/n] :  ";
@@ -392,7 +392,7 @@ void Accepted(){
     if (tolower(c) != 'y' && tolower(c) != 'n'){
       colorize("", 4);
       print_slow("invalid input...!\n");
-      colorize("", 176);
+      colorize("", 32);
       print_slow("made by : [Gerges Hany]..!\n");
       colorize("", 15);
       exit(0);
@@ -401,7 +401,7 @@ void Accepted(){
   }while(tolower(c) == 'y');
 
 
-  colorize("", 176);
+  colorize("", 32);
   print_slow("made by : [Gerges Hany]..!\n");
 
   //  return color to general color 
